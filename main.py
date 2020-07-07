@@ -13,6 +13,8 @@ def open_file():
     if not filepath:
         return
 
+    label_open['text'] = filepath
+
 def convert_file():
     converted_filepath = asksaveasfilename(
             defaultextension=".mp3",
@@ -20,6 +22,8 @@ def convert_file():
     )
 
     ffmpeg.input(filepath).output(converted_filepath).run()
+
+    label_save['text'] = f"Saved to {converted_filepath}"
 
 window = tk.Tk()
 window.title("AudioConverter")
