@@ -2,8 +2,15 @@ import tkinter as tk
 from tkinter import ttk
 import ffmpeg
 from tkinter.filedialog import askopenfilename, asksaveasfilename
+import os, sys
 
 filepath = ""
+
+try:
+    # PyInstaller stores path in _MEIPASS
+    base_path = sys._MEIPASS
+except AttributeError:
+    base_path = os.path.abspath(".")
 
 def open_file():
     global filepath
@@ -22,7 +29,7 @@ def convert_file():
             filetypes=[("Audio Files", "*.mp3")]
     )
 
-    ffmpeg.input(filepath).output(converted_filepath).run()
+    ffmpeg.input(filepath).output(converted_filepath).run(cmd=base_path + '/ffmpeg/ffmpeg.exe')
 
     label_save['text'] = f"Saved to {converted_filepath}"
 
