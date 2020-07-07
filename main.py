@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import ttk
 import ffmpeg
 from tkinter.filedialog import askopenfilename, asksaveasfilename
 
@@ -28,12 +29,12 @@ def convert_file():
 def open_help():
     help_dialog = tk.Toplevel()
     help_dialog.wm_title("About")
-    label = tk.Label(
+    label = ttk.Label(
             help_dialog,
             text="This utility was created by Abel Binoop!"
             )
     label.pack(side="top", fill="x", pady=10)
-    help_button = tk.Button(help_dialog, text="Okay", command=help_dialog.destroy)
+    help_button = ttk.Button(help_dialog, text="Okay", command=help_dialog.destroy)
     help_button.pack()
     help_dialog.mainloop()
 
@@ -50,10 +51,10 @@ help_menu.add_command(label="About", command=open_help)
 menubar.add_cascade(label="Help", menu=help_menu)
 
 fr_buttons = tk.Frame(window)
-btn_open = tk.Button(fr_buttons, text="Open", command=open_file)
-label_open = tk.Label(fr_buttons, text="No file opened...")
-btn_save = tk.Button(fr_buttons, text="Save As...", command=convert_file)
-label_save = tk.Label(fr_buttons, text="No target location...")
+btn_open = ttk.Button(fr_buttons, text="Open", command=open_file)
+label_open = ttk.Label(fr_buttons, text="No file opened...")
+btn_save = ttk.Button(fr_buttons, text="Save As...", command=convert_file)
+label_save = ttk.Label(fr_buttons, text="No target location...")
 
 btn_open.grid(row=0, column=0, sticky="ew", padx=5, pady=5)
 label_open.grid(row=1, column=0, sticky="ew", padx=5, pady=5)
