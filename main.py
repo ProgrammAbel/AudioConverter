@@ -25,11 +25,29 @@ def convert_file():
 
     label_save['text'] = f"Saved to {converted_filepath}"
 
+def open_help():
+    help_dialog = tk.Toplevel()
+    help_dialog.wm_title("About")
+    label = tk.Label(
+            help_dialog,
+            text="This utility was created by Abel Binoop!"
+            )
+    label.pack(side="top", fill="x", pady=10)
+    help_button = tk.Button(help_dialog, text="Okay", command=help_dialog.destroy)
+    help_button.pack()
+    help_dialog.mainloop()
+
 window = tk.Tk()
 window.title("AudioConverter")
 
 window.rowconfigure(0, minsize=150, weight=1)
 window.columnconfigure(1, minsize=400, weight=1)
+
+menubar = tk.Menu(window)
+
+help_menu = tk.Menu(menubar, tearoff=0)
+help_menu.add_command(label="About", command=open_help)
+menubar.add_cascade(label="Help", menu=help_menu)
 
 fr_buttons = tk.Frame(window)
 btn_open = tk.Button(fr_buttons, text="Open", command=open_file)
@@ -41,7 +59,8 @@ btn_open.grid(row=0, column=0, sticky="ew", padx=5, pady=5)
 label_open.grid(row=1, column=0, sticky="ew", padx=5, pady=5)
 btn_save.grid(row=2, column=0, sticky="ew", padx=5, pady=10)
 label_save.grid(row=3, column=0, sticky="ew", padx=5)
-
 fr_buttons.grid(row=0, column=0, sticky="ns")
+
+window.config(menu=menubar)
 
 window.mainloop()
