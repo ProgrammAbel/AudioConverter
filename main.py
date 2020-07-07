@@ -30,7 +30,10 @@ def convert_file():
     )
 
     label_save['text'] = "Conversion in progress..."
-    ffmpeg.input(filepath).output(converted_filepath).run(cmd=base_path + '/ffmpeg/ffmpeg.exe')
+    ffmpeg.input(filepath).output(converted_filepath).run(
+            cmd=base_path + '/ffmpeg/ffmpeg.exe',
+            overwrite_output=True
+            )
     label_save['text'] = f"Done! Saved to {converted_filepath}"
 
 def open_help():
