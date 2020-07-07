@@ -29,9 +29,9 @@ def convert_file():
             filetypes=[("Audio Files", "*.mp3")]
     )
 
+    label_save['text'] = "Conversion in progress..."
     ffmpeg.input(filepath).output(converted_filepath).run(cmd=base_path + '/ffmpeg/ffmpeg.exe')
-
-    label_save['text'] = f"Saved to {converted_filepath}"
+    label_save['text'] = f"Done! Saved to {converted_filepath}"
 
 def open_help():
     help_dialog = tk.Toplevel()
