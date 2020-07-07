@@ -38,7 +38,7 @@ def open_help():
     help_dialog.wm_title("About")
     label = ttk.Label(
             help_dialog,
-            text="AudioConverter v0.1.0\nThis utility was created by Abel Binoop!"
+            text="AudioConverter v0.2.0\nThis utility was created by Abel Binoop!"
             )
     label.pack(side="top", fill="x", padx=5, pady=10)
     help_button = ttk.Button(help_dialog, text="Okay", command=help_dialog.destroy)
