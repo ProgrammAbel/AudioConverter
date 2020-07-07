@@ -29,7 +29,7 @@ window = tk.Tk()
 window.title("AudioConverter")
 
 window.rowconfigure(0, minsize=150, weight=1)
-window.columnconfigure(1, minsize=300, weight=1)
+window.columnconfigure(1, minsize=400, weight=1)
 
 fr_buttons = tk.Frame(window)
 btn_open = tk.Button(fr_buttons, text="Open", command=open_file)
